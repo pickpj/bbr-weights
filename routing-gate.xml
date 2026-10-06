@@ -413,8 +413,8 @@
 
 
 		<parameter id="alpr" name="ALPR Avoidance" description="ALPR Routing Penalty in minutes" type="numeric" 
-		values="1800,15,30,45,60,75,90,105,120,150,225,300,450,600" 
-		valueDescriptions="inf,0.5m,1m,1.5m,2m,2.5m,3m,3.5m,4m,5m,7.5m,10m,15m,20m" 
+		values="1800,0,15,30,45,60,75,90,105,120,150,225,300,450,600" 
+		valueDescriptions="inf,0,0.5m,1m,1.5m,2m,2.5m,3m,3.5m,4m,5m,7.5m,10m,15m,20m" 
 		default="1800"/>
 
 
@@ -993,6 +993,10 @@
 				<select value="0" 	t="barrier" 	v="lift_gate"/>
 	 		</eq> 
 
+			<eq value1=":alpr" value2="0">
+				<select value="0" 		t="barrier" 	v="gate"/>
+				<select value="0" 		t="barrier" 	v="lift_gate"/>
+	 		</eq>
 			<eq value1=":alpr" value2="15">
 				<!-- <select value="15" 		t="barrier" 	v="gate"/> -->
 				<!-- <select value="30" 		t="barrier" 	v="lift_gate"/> -->
@@ -1216,6 +1220,10 @@
 				<select value="3600" 	t="barrier" 	v="lift_gate"/>
 	 		</eq> 
 
+			<eq value1=":alpr" value2="0">
+				<select value="0" 		t="barrier" 	v="gate"/>
+				<select value="0" 		t="barrier" 	v="lift_gate"/>
+	 		</eq>
 			<eq value1=":alpr" value2="30">
 				<select value="30" 		t="barrier" 	v="gate"/>
 				<select value="60" 		t="barrier" 	v="lift_gate"/>
